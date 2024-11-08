@@ -1,0 +1,24 @@
+<mat-dialog-content>
+    <p>Create your new folder</p>
+    <mat-form-field>
+      <mat-label>Folder name</mat-label>
+      <input 
+        matInput 
+        required 
+        [(ngModel)]="folder.title"
+   
+        #folderNameInput="ngModel"
+      />
+    </mat-form-field>
+  </mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button (click)="onEscape()">Escape</button>
+  <button 
+    mat-raised-button
+    placeholder="Folder's name"
+    (click)="onCreateFolder()"
+    [disabled]="!folderNameInput?.valid"
+  >
+    Create Folder
+  </button>
+</mat-dialog-actions>

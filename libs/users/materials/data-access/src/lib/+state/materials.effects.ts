@@ -1,11 +1,33 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, map, concatMap } from 'rxjs/operators';
+import { catchError, map, concatMap, switchMap, tap } from 'rxjs/operators';
 import { Observable, EMPTY, of } from 'rxjs';
 import { MaterialsActions } from './materials.actions';
+import { ApiService } from '@users/core/http';
+import { Folder, Folders } from '../model/models.interface';
 
 @Injectable()
 export class MaterialsEffects {
+
+  createFolder$ = createEffect(() => {
+    const actions$ = inject(Actions);
+    const apiService = inject(ApiService);
+
+    return actions$.pipe(
+      ofType(MaterialsActions.createFolder),
+      switchMap((action) => 
+        apiService.post<void, { folder: Folder }>('/folder', { folder: action.folder }).pipe(
+          map(() => MaterialsActions.updateFoldersSuccess({ folders: [action.folder] })),
+          catchError((error) => of(MaterialsActions.updateFoldersFailure({ error })))
+        )
+      )
+    );
+  });
+
+  
+
+
+  
   loadMaterialss$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(MaterialsActions.loadMaterialss),
