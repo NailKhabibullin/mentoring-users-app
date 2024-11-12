@@ -34,7 +34,6 @@ export class FoldersListContainerStore extends ComponentStore<FoldersListState> 
     this.materialsFacade.deleteFolder(id)
   }
 
-
 }
 
 //   // Метод для добавления папки
@@ -47,15 +46,3 @@ export class FoldersListContainerStore extends ComponentStore<FoldersListState> 
 //       })
 //     )
 //   );
-
-//   // Метод для удаления папки
-//   readonly deleteFolder = this.effect<number>((folderId$) =>
-//     folderId$.pipe(
-//       tap((folderId) => {
-//         this.patchState((state) => ({
-//           folders: state.folders.filter((folder) => folder.id !== folderId),
-//         }));
-//       })
-//     )
-//   );
-

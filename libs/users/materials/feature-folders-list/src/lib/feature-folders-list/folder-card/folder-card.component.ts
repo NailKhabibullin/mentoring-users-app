@@ -20,9 +20,13 @@ import { Folder } from '@users/materials/data-access';
 export class FolderCardComponent {
   @Input() folder!: Folder;
   @Output() deleteFolder = new EventEmitter<number>();
+  @Output() redirectToFolderPage = new EventEmitter<number>();
 
   onDeleteFolder() {
     this.deleteFolder.emit(this.folder.id)
-    console.log(111, 'folders-card', this.folder.id)
+  }
+
+  onRedirectToFolderPage() {
+    this.redirectToFolderPage.emit(this.folder.id)
   }
 }

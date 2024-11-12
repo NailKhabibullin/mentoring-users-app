@@ -18,9 +18,13 @@ import { Folder } from '@users/materials/data-access';
 export class FoldersListComponent {
   @Input() folders: Folder[] | null = [];
   @Output() deleteFolder = new EventEmitter<number>();
+  @Output() redirectToFolderPage = new EventEmitter<number>();
 
   onDeleteFolder(id: number) {
     this.deleteFolder.emit(id);
-    console.log(222, 'folders-list-component', id)
+  }
+
+  onRedirectToFolderPage(id: number) {
+    this.redirectToFolderPage.emit(id)
   }
 }

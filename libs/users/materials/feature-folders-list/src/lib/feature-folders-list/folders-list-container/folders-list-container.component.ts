@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FoldersListComponent } from '../folders-list/folders-list.component';
 import { FoldersListContainerStore } from './folders-list-container.store';
 import { Folder } from '@users/materials/data-access';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'users-folders-list-container',
@@ -18,6 +19,7 @@ import { Folder } from '@users/materials/data-access';
 })
 export class FoldersListContainerComponent {
   private readonly folderStore = inject(FoldersListContainerStore);
+  private readonly router = inject(Router);
   public folders$ = this.folderStore.folders$;
   
   ngOnInit() {
@@ -26,7 +28,12 @@ export class FoldersListContainerComponent {
 
   onDeleteFolder(id: number) {
     this.folderStore.deleteFolder(id);
-    console.log(333, 'folders-list-container', id)
   }
 
+  onRedirectToFolderPage(id: number) {
+    this.router.navigate(['/materials', id], {
+    });
+  }
+
+  
 }

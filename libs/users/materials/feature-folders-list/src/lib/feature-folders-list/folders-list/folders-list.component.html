@@ -3,7 +3,8 @@
         <users-folder-card 
             *ngFor="let folder of folders" 
             [folder]="folder"
-            (deleteFolder)="onDeleteFolder($event)">
+            (deleteFolder)="onDeleteFolder($event)"
+            (redirectToFolderPage)="onRedirectToFolderPage($event)">
         </users-folder-card>
     </ng-container>
 </div>

@@ -1,6 +1,7 @@
 <div>
   <users-folders-list 
     [folders]="folders$ | async"
-    (deleteFolder)="onDeleteFolder($event)">
+    (deleteFolder)="onDeleteFolder($event)"
+    (redirectToFolderPage)="onRedirectToFolderPage($event)">
   </users-folders-list>
 </div>

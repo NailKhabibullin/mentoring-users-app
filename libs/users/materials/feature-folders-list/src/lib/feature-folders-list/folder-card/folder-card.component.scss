@@ -20,7 +20,12 @@
     transition: visibility 0.3s ease, opacity 0.3s ease;
 }
 
-.folder-card-container:hover .folder-card-button-delete {
+.folder-card-container:hover {
+    cursor: pointer;
+}
+
+.folder-card-container:hover 
+.folder-card-button-delete {
     visibility: visible;
     opacity: 1;
 }
