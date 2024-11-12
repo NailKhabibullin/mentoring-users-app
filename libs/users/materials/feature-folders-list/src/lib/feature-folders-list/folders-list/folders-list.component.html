@@ -1,1 +1,9 @@
-<p>folders-list works!</p>
+<div class="folder-grid">
+    <ng-container *ngIf="folders && folders.length">
+        <users-folder-card 
+            *ngFor="let folder of folders" 
+            [folder]="folder"
+            (deleteFolder)="onDeleteFolder($event)">
+        </users-folder-card>
+    </ng-container>
+</div>

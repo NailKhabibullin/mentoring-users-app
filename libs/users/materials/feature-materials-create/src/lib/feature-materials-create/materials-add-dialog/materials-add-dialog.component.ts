@@ -7,7 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { Folder } from '@users/materials/data-access';
 import { MaterialsFacade } from '@users/materials/data-access';
-
+import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'users-materials-add-dialog',
   standalone: true,
@@ -17,7 +17,8 @@ import { MaterialsFacade } from '@users/materials/data-access';
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule
   ],
   templateUrl: './materials-add-dialog.component.html',
   styleUrls: ['./materials-add-dialog.component.scss'],
@@ -25,21 +26,21 @@ import { MaterialsFacade } from '@users/materials/data-access';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MaterialsAddDialogComponent {
-  readonly dialogRef = inject(MatDialogRef<MaterialsAddDialogComponent>);
+  // readonly dialogRef = inject(MatDialogRef<MaterialsAddDialogComponent>);
   private readonly materialsFacade = inject(MaterialsFacade);
 
-  folder: Folder = {
-    id: 0,
-    title: '',
-    created_at: Date.now(),
-};
+//   folder: Folder = {
+//     id: 0,
+//     title: '',
+//     created_at: Date.now(),
+// };
 
-  onCreateFolder(): void {
-    this.materialsFacade.createFolder(this.folder);
-    this.dialogRef.close()
-  }
-  onEscape(): void {
-    this.dialogRef.close();
-  }
+//   onCreateFolder(): void {
+//     this.materialsFacade.createFolder(this.folder);
+//     this.dialogRef.close()
+//   }
+//   onEscape(): void {
+//     this.dialogRef.close();
+//   }
 }
 

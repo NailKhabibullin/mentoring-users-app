@@ -1,13 +1,26 @@
-import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FolderCardComponent } from '../folder-card/folder-card.component';
+import { Folder } from '@users/materials/data-access';
 
 @Component({
   selector: 'users-folders-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    FolderCardComponent
+  ],
   templateUrl: './folders-list.component.html',
   styleUrls: ['./folders-list.component.scss'],
   encapsulation: ViewEncapsulation.Emulated,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FoldersListComponent {}
+export class FoldersListComponent {
+  @Input() folders: Folder[] | null = [];
+  @Output() deleteFolder = new EventEmitter<number>();
+
+  onDeleteFolder(id: number) {
+    this.deleteFolder.emit(id);
+    console.log(222, 'folders-list-component', id)
+  }
+}

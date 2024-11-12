@@ -1,0 +1,26 @@
+.folder-card-container {
+    height: auto;
+    width: 200px;
+    border: 2px solid grey;
+    background-color: lightgrey;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.folder-card-buttons-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.folder-card-button-delete {
+    visibility: hidden;
+    cursor: pointer;
+    transition: visibility 0.3s ease, opacity 0.3s ease;
+}
+
+.folder-card-container:hover .folder-card-button-delete {
+    visibility: visible;
+    opacity: 1;
+}

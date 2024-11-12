@@ -1,1 +1,6 @@
-<p>folders-list-container works!</p>
+<div>
+  <users-folders-list 
+    [folders]="folders$ | async"
+    (deleteFolder)="onDeleteFolder($event)">
+  </users-folders-list>
+</div>
